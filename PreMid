@@ -1,0 +1,28 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY PreMid IS
+
+	PORT (S: STD_LOGIC;
+			X1: STD_LOGIC;
+			X2: STD_LOGIC;
+			Y1: STD_LOGIC;
+			Y2: STD_LOGIC;
+			LEDR: OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+			Q1: OUT STD_LOGIC;
+			Q2: OUT STD_LOGIC);
+			
+	END PreMId;
+			
+	ARCHITECTURE Behavior OF PreMid IS
+	BEGIN
+			LEDR(4) <=S;
+			LEDR(3) <=X1;
+			LEDR(2) <=X2;
+			LEDR(1) <=Y1;
+			LEDR(0) <=Y2;
+			
+			Q1 <= (NOT S AND X1)OR(Y1 AND S);
+			Q2 <= (NOT S AND X2)OR(Y2 AND S);
+			
+	END Behavior;
